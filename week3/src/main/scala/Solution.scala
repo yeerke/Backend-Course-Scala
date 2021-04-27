@@ -114,30 +114,7 @@ object Solution {
     }
     ans
   }
-  def findSolution(customfunction: CustomFunction, z: Int): List[List[Int]] = {
-    var ans = List[List [Int]]()
-    for(x <- 1 to 1000){
-      var l = 1
-      var r = 1000
-      var y = 1
-      while(l <= r) {
-        val md = l + r >> 1
-        if(customfunction.f(x, md) <= z){
-          y = md;
-          l = md + 1;
-        }else {
-          r = md - 1;
-        }
-      }
 
-      while(customfunction.f(x, y) == z){
-        val tmp = List(x, y);
-        ans = ans :+ tmp
-        y -= 1
-      }
-    }
-    return ans
-  }
   def intersection(a: Array[Int], b: Array[Int]): Array[Int] = {
     var has = new scala.collection.mutable.TreeSet[Int] ()
     for(x <- a)
@@ -163,12 +140,29 @@ object Solution {
     }
     ans
   }
+
+  def findMaxElement(l: List[Int]): Int = {
+    var mx = 0
+
+    for(i <- 0 until l.size) {
+      if (mx <= l[i]) {
+        mx = l[i]
+      }
+    }
+
+    mx
+  }
+
   def findElement(l : List[Int], x : Int): Unit ={
     if(l.length == 0)
       return false
     if(l.head == x)
       return true
     return findElement(l.tail, x)
+
+  }
+
+  def main(args: Array[String]): Unit = {
 
   }
 }

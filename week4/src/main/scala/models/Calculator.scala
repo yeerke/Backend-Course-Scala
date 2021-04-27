@@ -5,11 +5,14 @@ class Calculator {
     var res: Int = 0
     var last_operation: (Int, Int) => Int = _
 
-    val operations: Map[String, (Int, Int) => Int] = Map("+" -> add, "-" -> subtract, "*" -> multiplication, "/" -> divide)
+    val operations: Map[String, (Int, Int) => Int] = Map("+" -> add, "-" -> subtract, "*" -> multiplication, "/" -> divide,
+    "^" -> aPowerB)
+
     def add(x: Int, y: Int): Int = {x + y}
     def subtract(x: Int, y: Int): Int = {x - y}
     def multiplication(x: Int, y: Int): Int = {x * y}
     def divide(x: Int, y: Int): Int = {x / y}
+    def aPowerB(a: Int, b: Int): Int = {math.pow(a, b).toInt}
 
     def set(num: Int): Unit = {
         res = num
